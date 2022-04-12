@@ -77,31 +77,47 @@ const responsive = {
 };
 
 const carouselParams = {
-  additionalTransfrom:0,
-  arrows:false,
-  autoPlaySpeed:3000,
-  centerMode:false,
-  className:"",
-  containerClass:"carousel-container",
-  customButtonGroup:<ButtonGroup />,
-  dotListClass:"",
+  additionalTransfrom: 0,
+  arrows: false,
+  autoPlaySpeed: 3000,
+  centerMode: false,
+  className: "",
+  containerClass: "carousel-container",
+  customButtonGroup: <ButtonGroup />,
+  dotListClass: "",
   draggable: true,
-  focusOnSelect:false,
-  infinite:true,
-  itemClass:"",
+  focusOnSelect: false,
+  infinite: true,
+  itemClass: "",
   keyBoardControl: true,
-  minimumTouchDrag:80,
+  minimumTouchDrag: 80,
   renderButtonGroupOutside: true,
-  renderDotsOutside:false,
-  responsive:responsive,
-  showDots:false,
-  sliderClass:"",
-  slidesToSlide:1,
+  renderDotsOutside: false,
+  responsive: responsive,
+  showDots: false,
+  sliderClass: "",
+  slidesToSlide: 1,
 }
 
 export default function TestimonialCard() {
   return (
-   <h1>Testimonial Card</h1>
+    <section id="testemonial" sx={{ variant: 'section.testemonial' }}>
+      <Container css={{ textAlign: 'center' }}>
+        <SectionHeader
+          slogan="Testimonial"
+          title="Meet Client Satisfaction"
+        />
+      </Container>
+      <Box sx={styles.carouselWrapper}>
+        <Carousel {...carouselParams}>
+          {data.map((item) => (
+            <Box sx={styles.reviewCard} key={item.sliderClass}>
+              <Rating rating={item.review} />
+            </Box>
+          ))}
+        </Carousel>
+      </Box>
+    </section>
   );
 }
 
